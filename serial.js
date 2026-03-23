@@ -258,8 +258,8 @@
                 return;
             }
             await serial.controlledTransfer(obj,"out", "vendor", "device", config.CH340.REQUEST_WRITE_REGISTRY, config.CH340.REG_CONTROL_STATUS, data);
-            await serial.controlledTransfer(obj,"out", "vendor", "device", config.CH340.REQUEST_WRITE_REGISTRY, config.CH340.REG_BAUD_FACTOR, data, 0xB282);
-            await serial.controlledTransfer(obj,"out", "vendor", "device", config.CH340.REQUEST_WRITE_REGISTRY, config.CH340.REG_BAUD_OFFSET, data, 0x0008);
+            await serial.controlledTransfer(obj,"out", "vendor", "device", config.CH340.REQUEST_WRITE_REGISTRY, config.CH340.REG_BAUD_FACTOR, data, 0xF383);
+            //await serial.controlledTransfer(obj,"out", "vendor", "device", config.CH340.REQUEST_WRITE_REGISTRY, config.CH340.REG_BAUD_OFFSET, data, 0x0008);
             await serial.controlledTransfer(obj,"out", "vendor", "device", config.CH340.REQUEST_WRITE_REGISTRY, config.CH340.REG_BAUD_LOW, data, 0x00C3);
             r = await serial.controlledTransfer(obj,"in", "vendor", "device", config.CH340.REQUEST_READ_REGISTRY, 0x0706, 2);
             r = serial.arrayBufferToHex(r);
